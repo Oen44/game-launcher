@@ -2,7 +2,7 @@ import { remote } from 'electron';
 import * as React from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import gamelauncher_logoPng from '../images/gamelauncher_logo.png';
+import logo from '../images/gamelauncher_logo.png';
 import LinkExternal from '../utils/LinkExternal';
 import './LoginWindow.scss';
 
@@ -18,7 +18,7 @@ const LoginWindow = () => (
         </header>
 
         <div id="main">
-            <img src={gamelauncher_logo} width="200" />
+            <img src={logo} width="200" />
 
             <div className="topLabel">PLEASE LOG IN</div>
 
