@@ -1,0 +1,9 @@
+.linkExternal {
+    text-decoration: none;
+    color: #00ffb6;
+    transition: 0.15s color;
+
+    &:hover {
+        color: #fff;
+    }
+}

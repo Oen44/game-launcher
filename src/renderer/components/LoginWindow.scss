@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=latin-ext');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    color: #929292;
+    font: 10pt 'Montserrat', sans-serif;
+    background: url('../images/login_window_bg.png');
+}
+
+#titlebar {
+    display: block;
+    position: sticky;
+    height: 28px;
+    width: 100%;
+    color: #fff;
+}
+
+#titlebar #drag-region {
+    width: 100%;
+    height: 100%;
+    -webkit-app-region: drag;
+    display: grid;
+}
+
+#window-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 28px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    -webkit-app-region: no-drag;
+}
+
+#window-controls .button {
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    user-select: none;
+}
+
+#window-controls #min-button {
+    grid-column: 1;
+    background: url('../images/minimize_icon.png');
+}
+
+#window-controls #min-button:hover {
+    background-image: url('../images/minimize_icon_hover.png');
+}
+
+#window-controls #close-button {
+    grid-column: 2;
+    background: url('../images/close_icon.png');
+}
+
+#window-controls #close-button:hover {
+    background-image: url('../images/close_icon_hover.png');
+}
+
+#main {
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topLabel {
+    margin: 20px 0;
+    color: #343942;
+    font-weight: 600;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 90px;
+        background: #343942;
+        margin-top: 8px;
+    }
+
+    &:before {
+        left: 30px;
+    }
+
+    &:after {
+        right: 30px;
+    }
+}
+
+.inputs > input {
+    background: #11141a;
+    color: #888b9c;
+    border: 1px solid #353943;
+    border-radius: 2px;
+    padding: 4px;
+    outline: 0;
+    width: calc(100% - 8px);
+    height: 22px;
+
+    &:first-child {
+        margin-bottom: 10px;
+    }
+
+    &::placeholder {
+        color: #4b4c52;
+    }
+
+    &:focus {
+        border-color: #00ffb6;
+    }
+}
+
+.inputs > button {
+    width: 100%;
+    height: 32px;
+    background: #00bb9a;
+    border: 1px solid #00ffb6;
+    font-weight: 500;
+    font-size: 11pt;
+    color: #fff;
+    outline: 0;
+
+    &:hover {
+        background-color: #00ffb6;
+    }
+
+    &:active {
+        background-color: #00bb9a;
+        padding-top: 2px;
+        padding-left: 2px;
+    }
+}
+
+.checkbox-container {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.checkbox-label {
+    position: relative;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    clear: both;
+}
+
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid #353943;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+    background: url('../images/checkbox_checked.png');
+    border-color: #00ffb6;
+}
+
+.input-title {
+    margin-left: 20px;
+}
+
+.line {
+    margin: 25px 0;
+    background: #343942;
+    height: 1px;
+    width: 100%;
+}
+
+.linkExternal {
+    font-size: 12pt;
+    margin-bottom: 8px;
+}
+
+small {
+    color: #3f444e;
+    font-size: 8pt;
+    position: absolute;
+    bottom: 10px;
+    right: 8px;
+    text-align: right;
+}
