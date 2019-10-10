@@ -10,6 +10,9 @@ const TitleBar = ({ resize }: { resize: boolean }) => {
         const resizeButtonElement = document.getElementById('resize-button');
         const closeButtonElement = document.getElementById('close-button');
 
+        // window.isMaximized() always returns false, hack until fixed
+        let maxed = false;
+
         if (minButtonElement) {
             minButtonElement.addEventListener('click', event => {
                 window = remote.getCurrentWindow();
@@ -20,8 +23,13 @@ const TitleBar = ({ resize }: { resize: boolean }) => {
         if (resizeButtonElement) {
             resizeButtonElement.addEventListener('click', event => {
                 window = remote.getCurrentWindow();
-                if (window.isMaximized()) window.unmaximize();
-                else window.maximize();
+                if (maxed) {
+                    window.unmaximize();
+                    maxed = false;
+                } else {
+                    window.maximize();
+                    maxed = true;
+                }
             });
         }
 
