@@ -4,18 +4,12 @@ import { hot } from 'react-hot-loader/root';
 
 import logo from '../images/gamelauncher_logo.png';
 import LinkExternal from '../utils/LinkExternal';
+import TitleBar from '../utils/TitleBar';
 import './LoginWindow.scss';
 
 const LoginWindow = () => (
     <div>
-        <header id="titlebar">
-            <div id="drag-region">
-                <div id="window-controls">
-                    <div className="button" id="min-button" />
-                    <div className="button" id="close-button" />
-                </div>
-            </div>
-        </header>
+        <TitleBar resize={false}/>
 
         <div id="main">
             <img src={logo} width="200" />
