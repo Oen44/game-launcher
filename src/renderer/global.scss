@@ -1,44 +1,47 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=latin-ext');
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
     -webkit-user-select: none;
     -webkit-user-drag: none;
     -webkit-app-region: no-drag;
-
-    &:before,
-    &:after {
-        box-sizing: inherit;
-        -webkit-user-select: none;
-        -webkit-user-drag: none;
-        -webkit-app-region: no-drag;
-    }
+  }
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 body {
-    color: #929292;
-    font: 10pt 'Montserrat', sans-serif;
+  color: #929292;
+  font: 10pt 'Montserrat', sans-serif;
+  border-image: url('./images/background.png');
+  border-image-slice: 2 fill;
+  border-image-width: 2px;
 }
 
 .linkExternal {
-    text-decoration: none;
-    color: #00ffb6;
-    transition: 0.15s color;
+  text-decoration: none;
+  color: #00ffb6;
+  transition: 0.15s color;
 
-    &:hover {
-        color: #fff;
-    }
+  &:hover {
+    color: #fff;
+  }
 }
