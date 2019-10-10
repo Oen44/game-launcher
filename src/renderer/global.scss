@@ -5,10 +5,16 @@
     padding: 0;
     border: 0;
     vertical-align: baseline;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-app-region: no-drag;
 
     &:before,
     &:after {
         box-sizing: inherit;
+        -webkit-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
     }
 }
 
