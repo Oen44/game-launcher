@@ -3,61 +3,83 @@ import * as React from 'react';
 
 import './TitleBar.scss';
 
-const TitleBar = ({ resize }: { resize: boolean }) => {
-    React.useEffect(() => {
-        let window = remote.getCurrentWindow();
-        const minButtonElement = document.getElementById('min-button');
-        const resizeButtonElement = document.getElementById('resize-button');
-        const closeButtonElement = document.getElementById('close-button');
+/**
+ * TitleBar component
+ * @description Adds custom title bar at the top
+ *              with the ability to drag window and use custom control buttons.
+ * @param title (optional) text to show on the top bar
+ * @param minimize if true, minimize button will be visible
+ * @param resize if true, resize button will be visible
+ * @param close if true, close button will be visible
+ */
+const TitleBar = ({
+  title,
+  minimize,
+  resize,
+  close,
+}: {
+  title?: string;
+  minimize?: boolean;
+  resize?: boolean;
+  close?: boolean;
+}) => {
+  const window = remote.getCurrentWindow();
+  let maxed = false;
 
-        // window.isMaximized() always returns false, hack until fixed
-        let maxed = false;
+  function minimizeButtonClicked() {
+    window.minimize();
+  }
 
-        if (minButtonElement) {
-            minButtonElement.addEventListener('click', event => {
-                window = remote.getCurrentWindow();
-                window.minimize();
-            });
-        }
+  function resizeButtonClicked() {
+    if (maxed) {
+      window.unmaximize();
+      maxed = false;
+    } else {
+      window.maximize();
+      maxed = true;
+    }
+  }
 
-        if (resizeButtonElement) {
-            resizeButtonElement.addEventListener('click', event => {
-                window = remote.getCurrentWindow();
-                if (maxed) {
-                    window.unmaximize();
-                    maxed = false;
-                } else {
-                    window.maximize();
-                    maxed = true;
-                }
-            });
-        }
+  function closeButtonClicked() {
+    window.close();
+  }
 
-        if (closeButtonElement) {
-            closeButtonElement.addEventListener('click', event => {
-                window = remote.getCurrentWindow();
-                window.close();
-            });
-        }
-    });
-
-    const minButton = <div className="button" id="min-button" />;
-    let resizeButton;
-    if (resize) resizeButton = <div className="button" id="resize-button" />;
-    else resizeButton = <div className="button" id="resize-button" style={{ display: 'none' }} />;
-    const closeButton = <div className="button" id="close-button" />;
-
-    return (
-        <header id="titlebar">
-            <div id="drag-region">
-                <div id="window-controls">
-                    {minButton}
-                    {resizeButton}
-                    {closeButton}
-                </div>
-            </div>
-        </header>
+  let minimizeButton;
+  if (minimize) {
+    minimizeButton = (
+      <div className="button minimize" onClick={minimizeButtonClicked} />
     );
+  }
+  let resizeButton;
+  if (resize) {
+    resizeButton = (
+      <div className="button resize" onClick={resizeButtonClicked} />
+    );
+  }
+  let closeButton;
+  if (close) {
+    closeButton = <div className="button close" onClick={closeButtonClicked} />;
+  }
+
+  let titleElement;
+  if (title) {
+    titleElement = (
+      <div id="window-title">
+        <span>{title}</span>
+      </div>
+    );
+  }
+
+  return (
+    <header className="titlebar">
+      {titleElement}
+      <div className="window-controls">
+        {minimizeButton}
+        {resizeButton}
+        {closeButton}
+      </div>
+    </header>
+  );
 };
 
 export default TitleBar;

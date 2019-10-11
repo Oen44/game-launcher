@@ -1,57 +1,44 @@
-#titlebar {
-    display: block;
-    position: sticky;
-    height: 28px;
-    width: 100%;
-    color: #fff;
+.titlebar {
+  display: block;
+  position: sticky;
+  height: 28px;
+  width: 100%;
+  color: #fff;
+  -webkit-app-region: drag;
 }
 
-#titlebar #drag-region {
-    width: 100%;
-    height: 100%;
-    -webkit-app-region: drag;
-    display: grid;
+.window-controls {
+  display: inline-flex;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-#window-controls {
-    display: grid;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    -webkit-app-region: no-drag;
+.window-controls .button {
+  width: 28px;
+  height: 28px;
 }
 
-#window-controls .button {
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 28px;
-    height: 28px;
-    user-select: none;
+.window-controls .minimize {
+  background: url('../images/minimize_icon.png');
 }
 
-#window-controls #min-button {
-    background: url('../images/minimize_icon.png');
+.window-controls .minimize:hover {
+  background-image: url('../images/minimize_icon_hover.png');
 }
 
-#window-controls #min-button:hover {
-    background-image: url('../images/minimize_icon_hover.png');
+.window-controls .resize {
+  background: url('../images/resize_icon.png');
 }
 
-#window-controls #resize-button {
-    background: url('../images/resize_icon.png');
+.window-controls .resize:hover {
+  background-image: url('../images/resize_icon_hover.png');
 }
 
-#window-controls #resize-button:hover {
-    background-image: url('../images/resize_icon_hover.png');
+.window-controls .close {
+  background: url('../images/close_icon.png');
 }
 
-#window-controls #close-button {
-    background: url('../images/close_icon.png');
-}
-
-#window-controls #close-button:hover {
-    background-image: url('../images/close_icon_hover.png');
+.window-controls .close:hover {
+  background-image: url('../images/close_icon_hover.png');
 }
