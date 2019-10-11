@@ -13,7 +13,7 @@ const LauncherWindow = () => {
   });
   return (
     <div>
-      <TitleBar resize={true} />
+      <TitleBar minimize resize close />
       <h1>Launcher Window</h1>
     </div>
   );
