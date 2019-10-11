@@ -5,12 +5,19 @@ import './TitleBar.scss';
 
 /**
  * TitleBar component
- * @description Adds custom title bar at the top
- *              with the ability to drag window and use custom control buttons.
- * @param title (optional) text to show on the top bar
- * @param minimize if true, minimize button will be visible
- * @param resize if true, resize button will be visible
- * @param close if true, close button will be visible
+ *
+ * Adds custom title bar at the top
+ * with the ability to drag window
+ * and use custom control buttons.
+ *
+ * @param title     (optional) text to show on the top bar
+ * @param minimize  if true, minimize button will be visible
+ * @param resize    if true, resize button will be visible
+ * @param close     if true, close button will be visible
+ *
+ * @author          Arkadiusz Lach
+ * @version         1.0
+ * @since           0.0.1
  */
 const TitleBar = ({
   title,
