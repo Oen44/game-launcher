@@ -1,6 +1,8 @@
 .titlebar {
   display: block;
   position: sticky;
+  top: 0;
+  z-index: 9999;
   height: 28px;
   width: 100%;
   color: #fff;

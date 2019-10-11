@@ -1,0 +1,83 @@
+.launcherWindow {
+  height: 100%;
+}
+
+.topMenu {
+  position: sticky;
+  top: 28px;
+  height: 100px;
+  z-index: 9998;
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.5);
+
+  & > img {
+    position: absolute;
+    left: 32px;
+    top: 6px;
+  }
+
+  & > ul {
+    padding: 20px 0;
+    margin-left: 130px;
+    list-style: none;
+    display: inline-flex;
+    & > li {
+      margin: 0 20px;
+      font-size: 2em;
+      font-weight: bold;
+      & > a {
+        text-decoration: none;
+        color: #fff;
+        transition: 0.15s color;
+
+        &:hover {
+          color: #00ffb6;
+        }
+      }
+    }
+  }
+}
+
+.mainContent {
+  height: calc(100% - 131px);
+  margin-top: 3px;
+}
+
+.leftMenu {
+  background: #17181d;
+  height: 100%;
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
+  align-content: center;
+  padding: 0 40px;
+  vertical-align: top;
+  margin-left: 1px;
+  margin-top: -2px;
+  border: 1px solid #3b455b;
+  border-top: 0;
+  border-right: 0;
+
+  & > img {
+    border-radius: 4px;
+    margin: 15px 0;
+  }
+}
+
+.content {
+  display: inline-block;
+  background: #1f2229;
+  height: 100%;
+  width: calc(100% - 132px);
+  position: relative;
+  vertical-align: top;
+  margin-right: 1px;
+  margin-top: -2px;
+  border-bottom: 1px solid #3b455b;
+  border-right: 1px solid #3b455b;
+
+  & > img {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+  }
+}

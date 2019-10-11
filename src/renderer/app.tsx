@@ -9,18 +9,19 @@ import LauncherWindow from './components/LauncherWindow';
 import LoginWindow from './components/LoginWindow';
 
 const mainElement = document.createElement('div');
+mainElement.style.height = '100%';
 document.body.appendChild(mainElement);
 document.addEventListener('dragover', event => event.preventDefault());
 document.addEventListener('drop', event => event.preventDefault());
 
 const routes = {
-    '/': () => <LoginWindow />,
-    '/launcher': () => <LauncherWindow />
+  '/': () => <LoginWindow />,
+  '/launcher': () => <LauncherWindow />,
 };
 
 const App = () => {
-    const routeResult = useRoutes(routes);
-    return <AppContainer>{routeResult}</AppContainer>;
+  const routeResult = useRoutes(routes);
+  return <AppContainer>{routeResult}</AppContainer>;
 };
 
 ReactDOM.render(<App />, mainElement);
